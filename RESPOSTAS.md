@@ -241,7 +241,7 @@ Pela boa explicação do exercício não ocorreram dificuldades em sua resoluç�
 
 ### 5.2 O que vocês fariam diferente se fossem refazer?
 
-É possível existir outra forma de fazer o que foi proposto, porém, ainda foi cedo em termos de conhecimento mais aprofundado sobre como todo o processo se desenrola, o que com a aquisição de experiência novos insights surgiram para a realização da mesma proposição de outra maneira.
+É possível existir outra forma de fazer o que foi proposto, porém, ainda foi cedo em termos de conhecimento mais aprofundado sobre como todo o processo se desenrola, o que com a aquisição de experiência novos insights surgirão para a realização da mesma proposição de outra maneira.
 
 ---
 
