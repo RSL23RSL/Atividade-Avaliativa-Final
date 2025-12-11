@@ -3,12 +3,13 @@
 ## Identificação do Grupo
 
 - **Integrantes:**
-  1. Nome: Rogério Alves
-  2. Nome: Reginaldo Tanno
-  3. Nome: Renato Lira
-  4. Nome:
-  5. Nome:
-  6. Nome:
+- 
+  1. Nome: Reginaldo Toshiaki Tanno
+
+  2. Nome: Renato Silva e Lira
+
+  3. Nome: Rogério Alves da Conceição
+ 
 
 ---
 
@@ -159,7 +160,7 @@ Conforme o requisito acima, o modelo não apresenta bom resultado, pois o F1 fic
 
 ### 2.2 O dataset é balanceado ou desbalanceado? Como você descobriu?
 <!-- Dica: veja a proporção da variável target na exploração dos dados -->
-Desbalanceado
+O dataset é balanceado, com proporção de 56% para classe 0 e 44% para classe 1 (aproximadamente 1.27:1). Um dataset só é considerado desbalanceado quando a proporção ultrapassa 80/20 ou 4:1. Descobrimos isso através da análise da distribuição percentual do target exibida na etapa de exploração dos dados, onde o pipeline mostrou 56.06% de não-respondentes e 43.94% de respondentes.
 
 DISTRIBUIÇÃO DO TARGET EM PERCENTUAL
 --------------------------------------------------------------------------------
@@ -173,11 +174,10 @@ Verificando o resultado de quem respondeu e não respondeu a campanha, percebemo
 
 ### 2.3 Por que usamos F1-Score e não apenas Accuracy neste caso?
 <!-- Dica: pense no que aconteceria se o modelo previsse sempre 0 -->
-O F1-Score é o indicado para usar com dataset desbalanceado, pois consegue retornar o resultado que representa de forma mais realista os valores do target. 
-Ele leva em consideração quantos dos positivos previstos realmente são positivos (precision) e quantos dos positivos verdadeiros o modelo consegue encontrar (recall), produzindo um melhor modelo para obter resultados mais próximos da realidade.
 
-Por outro lado, o accuracy pode ser impreciso quando utilizado com dados desbalanceados, visto que pode prever somente a classe majoritária, não percebendo os valores das classes minoritárias, não informando uma visão completa do resultado apurado.
+Usamos F1-Score porque a Accuracy pode enganar: se o modelo previsse sempre "0" (classe majoritária), teria 56% de accuracy mas seria inútil. O F1-Score é a média harmônica entre Precision e Recall, penalizando tanto Falsos Positivos quanto Falsos Negativos. No contexto de campanhas de marketing, precisamos identificar quem responderá (Recall) e evitar desperdiçar recursos (Precision), e o F1-Score captura esse equilíbrio necessário.
 
+Embora a Acurácia seja útil em dados balanceados, optamos pelo F1-Score porque ele oferece uma visão mais robusta do desempenho do modelo. A Acurácia pode ser enganosa se o modelo simplesmente 'chutar' a classe majoritária. O F1-Score penaliza tanto Falsos Positivos quanto Falsos Negativos, garantindo que o modelo realmente aprendeu a identificar o padrão, e não apenas a classe mais frequente.
 
 ---
 
@@ -195,7 +195,9 @@ Por outro lado, o accuracy pode ser impreciso quando utilizado com dados desbala
 
 ### 3.2 Por que validar dados ANTES de treinar o modelo?
 <!-- Pense no contexto de produção: o que aconteceria se dados inválidos entrassem no modelo? -->
-Dados inválidos provacam a quebra na execução do pipeline caso não sejam os tipos esperados pelo modelo, bem como, caso sejam do tipo esperado, mas não compõem o conjunto de determinada categoria, o código pode rodar, mas trará informações que não serão consideradas para a avaliação do resultado. Como análise para um modelo sobre classe social: A, B, C, D e aparece um E ou qualquer outra que não esteja categorizada.
+Validar dados antes do treinamento é crítico porque previne falhas silenciosas em produção, garante qualidade seguindo o princípio "lixo entra, lixo sai", facilita debugging antecipado evitando desperdício de tempo computacional, e atende requisitos de auditoria. Exemplo prático: um score_credito de 1200 (inválido) passaria despercebido e faria o modelo aprender padrões incorretos, gerando previsões ruins em produção. A validação garante que apenas dados corretos entrem no pipeline.
+
+
 
 
 ---
@@ -241,8 +243,8 @@ Pela boa explicação do exercício não ocorreram dificuldades em sua resoluç�
 
 ### 5.2 O que vocês fariam diferente se fossem refazer?
 
-É possível existir outra forma de fazer o que foi proposto, porém, ainda foi cedo em termos de conhecimento mais aprofundado sobre como todo o processo se desenrola, o que com a aquisição de experiência novos insights surgirão para a realização da mesma proposição de outra maneira.
+É possível existir outra forma de fazer o que foi proposto, porém, ainda foi cedo em termos de conhecimento mais aprofundado sobre como todo o processo se desenrola, o que com a aquisição de experiência novos insights surgirão para a resoluçao da mesma situação proposta de outra maneira.
 
 ---
 
-**Data de entrega:** xx/12/2025
+**Data de entrega:** 11/12/2025
